@@ -6,8 +6,8 @@ I created this simple project for my personal assessment. The idea is from the w
 
 1. API - that contains the logic
     * Consumable class
-        * Edible
-        * Drinkable
+        * Edible class
+        * Drinkable class
     * Fridge class
 2. The rest lolxd
 

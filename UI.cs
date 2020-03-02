@@ -9,18 +9,21 @@ namespace Refrigerator
         {
             System.Console.WriteLine(message);
         }
-        public static void PrintContents(Fridge fridge)
+        public static void PrintContents(List<Consumable> consumables)
         {
-            if (fridge.Consumables.Count <= 0)
+            if (consumables.Count <= 0)
             {
                 PrintInfo("Fridge is empty!");
                 return;
             }
             PrintInfo("Contents: ");
             int i = 1;
-            foreach (var consumable in fridge.Consumables)
+            foreach (var consumable in consumables)
             {
-                UI.PrintLine($"{i}. " + consumable.ToString());
+                Console.ForegroundColor = ConsoleColor.Blue;
+                System.Console.Write($"{i}. ");
+                Console.ResetColor();
+                UI.PrintLine(consumable.ToString());
                 i++;
             }
         }

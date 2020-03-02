@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace Refrigerator
@@ -40,25 +41,31 @@ namespace Refrigerator
                 throw new FridgeIsFullException();
             }
         }
-
-        public void SaveToXML(string fileName)
+        public List<Consumable> FindConsumable(string input)
         {
-            UI.PrintInfo($"Saved everything to {fileName}!");
-            using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
+            List<Consumable> consumables = new List<Consumable>();
+            foreach (var consumable in Consumables)
             {
-                XmlSerializer xml = new XmlSerializer(typeof(Fridge));
-                xml.Serialize(fileStream, this);
+                if (consumable.Name.ToLower() == input.ToLower())
+                {
+                    consumables.Add(consumable);
+                }
+            }
+
+            if (consumables.Count == 0)
+            {
+                throw new ConsumableNotFoundException();
+            }
+            else
+            {
+                return consumables;
             }
         }
 
-        public static Fridge LoadFromXML(string fileName)
+        public void RemoveConsumable(Consumable consumable)
         {
-            UI.PrintInfo($"Loaded everything from {fileName}!");
-            using (var fileStream = new FileStream(fileName, FileMode.Open))
-            {
-                XmlSerializer xml = new XmlSerializer(typeof(Fridge));
-                return (Fridge)xml.Deserialize(fileStream);
-            }
+            Consumables.Remove(consumable);
+            UI.PrintInfo("Deleted!");
         }
 
         public override string ToString()
