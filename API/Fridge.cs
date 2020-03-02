@@ -30,6 +30,15 @@ namespace Refrigerator
             Capacity = capacity;
             Consumables = new List<Consumable>();
         }
+        public void CreateConsumable()
+        {
+
+        }
+        public void RemoveConsumable(Consumable consumable)
+        {
+            Consumables.Remove(consumable);
+            UI.PrintInfo("Deleted!");
+        }
         public void StoreConsumable(Consumable consumable)
         {
             if (Consumables.Count < Capacity)
@@ -62,11 +71,53 @@ namespace Refrigerator
             }
         }
 
-        public void RemoveConsumable(Consumable consumable)
+        public List<Consumable> GetVeganFoods()
         {
-            Consumables.Remove(consumable);
-            UI.PrintInfo("Deleted!");
+            List<Consumable> veganEdibles = new List<Consumable>();
+            foreach (var consumable in Consumables)
+            {
+                Edible edible = consumable as Edible;
+                if (edible != null)
+                {
+                    if (edible.IsVegan())
+                        veganEdibles.Add(edible);
+                }
+            }
+
+            if (veganEdibles.Count == 0)
+            {
+                throw new ConsumableNotFoundException();
+            }
+            else
+            {
+                return veganEdibles;
+            }
         }
+
+        public List<Consumable> GetAlcoholicBeverages()
+        {
+            List<Consumable> alcoholicBeverages = new List<Consumable>();
+            foreach (var consumable in Consumables)
+            {
+                Drinkable drinkable = consumable as Drinkable;
+                if (drinkable != null)
+                {
+                    if (drinkable.IsAlcoholicBeverage())
+                        alcoholicBeverages.Add(drinkable);
+                }
+            }
+
+            if (alcoholicBeverages.Count == 0)
+            {
+                throw new ConsumableNotFoundException();
+            }
+            else
+            {
+                return alcoholicBeverages;
+            }
+        }
+
+
 
         public override string ToString()
         {

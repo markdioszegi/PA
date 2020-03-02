@@ -60,6 +60,8 @@ namespace Refrigerator
                 UI.PrintInfo("Fridge details: " + fridge.ToString());
                 UI.PrintInfo("Commands: ");
                 UI.PrintLine("list:\tlist the contents of the fridge");
+                UI.PrintLine("vegan:\tlist the contents of vegan foods");
+                UI.PrintLine("alcohol:\tlist the contents of alcoholic beverages");
                 UI.PrintLine("find:\tfind an element by name");
                 UI.PrintLine("new:\tcreate an element by name");
                 UI.PrintLine("rm:\tremove an element by name");
@@ -70,12 +72,18 @@ namespace Refrigerator
                     case "list":
                         UI.PrintContents(fridge.Consumables);
                         break;
+                    case "vegan":
+                        UI.PrintContents(fridge.GetVeganFoods());
+                        break;
+                    case "alcohol":
+                        UI.PrintContents(fridge.GetAlcoholicBeverages());
+                        break;
                     case "find":
                         UI.PrintInfo("Product name: ");
                         UI.PrintContents(fridge.FindConsumable(Console.ReadLine()));
                         break;
                     case "new":
-
+                        UI.PrintInfo("new what? :D");
                         break;
                     case "rm":
                         UI.PrintInfo("Product name: ");
