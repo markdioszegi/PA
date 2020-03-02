@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Fridges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Consumables>
+    <Consumable xsi:type="Drinkable">
+      <Name>Vodka</Name>
+      <Calories>35</Calories>
+      <BestBefore>2100-01-01T00:00:00</BestBefore>
+      <AlcoholByVolume>37.5</AlcoholByVolume>
+    </Consumable>
+    <Consumable xsi:type="Edible">
+      <Name>Egg</Name>
+      <Calories>155</Calories>
+      <BestBefore>2020-03-22T00:00:00</BestBefore>
+      <EdibleType>DAIRY_PRODUCT</EdibleType>
+    </Consumable>
+  </Consumables>
+  <ID>F2</ID>
+  <Brand>Zanussi</Brand>
+  <ModelName>ZFC600</ModelName>
+  <Capacity>10</Capacity>
+</Fridges>
