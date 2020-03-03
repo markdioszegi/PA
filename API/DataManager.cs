@@ -18,12 +18,16 @@ namespace Refrigerator
 
         public static List<Fridge> LoadFromXML(string fileName, List<Fridge> fridges)
         {
-            UI.PrintInfo($"Loaded everything from {fileName}!");
-            using (var fileStream = new FileStream(fileName, FileMode.Open))
+            if (File.Exists(fileName))
             {
-                XmlSerializer xml = new XmlSerializer(fridges.GetType(), new XmlRootAttribute("Fridges"));
-                return (List<Fridge>)xml.Deserialize(fileStream);
+                UI.PrintInfo($"Loaded everything from {fileName}!");
+                using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
+                {
+                    XmlSerializer xml = new XmlSerializer(fridges.GetType(), new XmlRootAttribute("Fridges"));
+                    return (List<Fridge>)xml.Deserialize(fileStream);
+                }
             }
+            return fridges;
         }
     }
 }

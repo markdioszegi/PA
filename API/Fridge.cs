@@ -16,9 +16,13 @@ namespace Refrigerator
         int capacity;
         public List<Consumable> Consumables { get; set; }
 
+        [XmlAttribute]
         public string ID { get => id; set => id = value; }
+        [XmlAttribute]
         public string Brand { get => brand; set => brand = value; }
+        [XmlAttribute]
         public string ModelName { get => modelName; set => modelName = value; }
+        [XmlAttribute]
         public int Capacity { get => capacity; set => capacity = value; }
 
         public Fridge() { }
@@ -29,10 +33,6 @@ namespace Refrigerator
             ModelName = modelName;
             Capacity = capacity;
             Consumables = new List<Consumable>();
-        }
-        public void CreateConsumable()
-        {
-
         }
         public void RemoveConsumable(Consumable consumable)
         {
@@ -55,7 +55,7 @@ namespace Refrigerator
             List<Consumable> consumables = new List<Consumable>();
             foreach (var consumable in Consumables)
             {
-                if (consumable.Name.ToLower() == input.ToLower())
+                if (consumable.Name.ToLower().Contains(input.ToLower()))
                 {
                     consumables.Add(consumable);
                 }
@@ -116,8 +116,6 @@ namespace Refrigerator
                 return alcoholicBeverages;
             }
         }
-
-
 
         public override string ToString()
         {

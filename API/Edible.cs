@@ -5,7 +5,7 @@ namespace Refrigerator
 {
     public enum EdibleType
     {
-        VEGETABLE,
+        VEGETABLE = 1,
         FRUIT,
         MEAT,
         FISH,

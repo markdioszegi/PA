@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Fridges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Fridge ID="H6" Brand="zanusszi" ModelName="ezeoccaz" Capacity="10">
+    <Consumables>
+      <Consumable xsi:type="Drinkable">
+        <Name>Vodka Beer 0%</Name>
+        <Calories>260</Calories>
+        <BestBefore>2030-01-01T00:00:00</BestBefore>
+        <AlcoholByVolume>0</AlcoholByVolume>
+      </Consumable>
+      <Consumable xsi:type="Drinkable">
+        <Name>Milk</Name>
+        <Calories>105</Calories>
+        <BestBefore>2020-03-10T00:00:00</BestBefore>
+        <AlcoholByVolume>0</AlcoholByVolume>
+      </Consumable>
+      <Consumable xsi:type="Edible">
+        <Name>Egg</Name>
+        <Calories>155</Calories>
+        <BestBefore>2020-03-22T00:00:00</BestBefore>
+        <EdibleType>DAIRY_PRODUCT</EdibleType>
+      </Consumable>
+      <Consumable xsi:type="Edible">
+        <Name>Alaskan cod</Name>
+        <Calories>420</Calories>
+        <BestBefore>2021-05-05T00:00:00</BestBefore>
+        <EdibleType>FISH</EdibleType>
+      </Consumable>
+    </Consumables>
+  </Fridge>
+</Fridges>

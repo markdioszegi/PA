@@ -23,7 +23,7 @@ namespace Refrigerator
                 Console.ForegroundColor = ConsoleColor.Blue;
                 System.Console.Write($"{i}. ");
                 Console.ResetColor();
-                UI.PrintLine(consumable.ToString());
+                System.Console.WriteLine(consumable.ToString());
                 i++;
             }
         }
@@ -41,6 +41,17 @@ namespace Refrigerator
             System.Console.Write("ERROR ");
             Console.ResetColor();
             System.Console.WriteLine(message);
+        }
+
+        public static string GetInput()
+        {
+            return Console.ReadLine();
+        }
+
+        public static string GetInput(string message)
+        {
+            System.Console.Write(message);
+            return Console.ReadLine();
         }
     }
 }
