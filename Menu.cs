@@ -51,16 +51,21 @@ namespace Refrigerator
                     while (!accepted)
                     {
                         id = UI.GetInput("ID: ");
-                        foreach (var fridge in Fridges)
+                        if (Fridges.Count != 0)
+                            foreach (var fridge in Fridges)
+                            {
+                                if (id == fridge.ID)
+                                {
+                                    UI.PrintError("ID already exists in that xml!");
+                                }
+                                else
+                                {
+                                    accepted = true;
+                                }
+                            }
+                        else
                         {
-                            if (id == fridge.ID)
-                            {
-                                UI.PrintError("ID already exists in that xml!");
-                            }
-                            else
-                            {
-                                accepted = true;
-                            }
+                            accepted = true;
                         }
                     }
                     string brand = UI.GetInput("Brand: ");
